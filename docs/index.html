@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>麦当劳到店真相 · 麦当劳程序员创意开发大赛参赛作品</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#faf6f1;color:#241f21;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
+.wrap{max-width:900px;margin:0 auto;padding:36px 20px 60px}
+.hero{background:linear-gradient(135deg,#DA291C,#f0503a);color:#fff;border-radius:20px;padding:34px 34px 30px;box-shadow:0 10px 30px rgba(218,41,28,.18)}
+.badge{display:inline-block;background:#FFC72C;color:#241f21;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:14px}
+.hero h1{font-size:34px;letter-spacing:1px}
+.hero .sub{font-size:16px;opacity:.95;margin-top:6px}
+.hero .desc{margin-top:16px;font-size:14px;opacity:.92}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 8px}
+.stat{background:#fff;border-radius:14px;padding:16px 10px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.stat b{display:block;font-size:24px;color:#DA291C}
+.stat span{font-size:12px;color:#8a8587}
+.cta{display:flex;gap:12px;margin:22px 0 6px;flex-wrap:wrap}
+.btn{display:inline-block;background:#DA291C;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;box-shadow:0 6px 16px rgba(218,41,28,.25)}
+.btn.ghost{background:#fff;color:#DA291C;border:2px solid #DA291C;box-shadow:none}
+.panel{background:#fff;border-radius:16px;padding:24px 26px;margin-top:18px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.panel h2{font-size:17px;border-left:4px solid #FFC72C;padding-left:10px;margin-bottom:16px}
+.feat{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed #eee;font-size:14px}
+.feat:last-child{border-bottom:none}
+.feat .k{flex:0 0 118px;font-weight:700;color:#DA291C}
+.shot{margin:14px 0}
+.shot img{width:100%;border-radius:12px;border:1px solid #ece4d9;display:block}
+.shot .cap{font-size:12px;color:#8a8587;margin-top:6px;text-align:center}
+pre{background:#0d1117;color:#c9d1d9;border-radius:12px;padding:16px 18px;font-size:13px;overflow-x:auto;font-family:Consolas,Menlo,monospace}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.links a{font-size:13px;color:#DA291C;text-decoration:none;border:1px solid #f0d9d4;border-radius:999px;padding:6px 14px}
+footer{margin-top:26px;font-size:12px;color:#9aa0a6;border-top:1px dashed #e5e7eb;padding-top:14px;line-height:1.9}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:26px}}
+</style></head><body><div class="wrap">
+
+<div class="hero">
+  <span class="badge">1024 程序员节 · 麦当劳 MCP 创意开发大赛</span>
+  <h1>麦当劳到店真相</h1>
+  <div class="sub">这张券，在这家店，此刻到底能不能用</div>
+  <div class="desc">不给你「可能可以」，只给三种答案：**可以用 / 用不了 / 判不了**——并且每条结论都附上依据字段。</div>
+</div>
+
+<div class="stats"><div class='stat'><b>3</b><span>态判定结论</span></div><div class='stat'><b>5</b><span>家实时门店</span></div><div class='stat'><b>13</b><span>项离线单测</span></div><div class='stat'><b>0</b><span>第三方依赖</span></div></div>
+
+<div class="cta">
+  <a class="btn" href="https://github.com/susevenci/mcd-store-truth">⭐ 去 GitHub 点 Star</a>
+  <a class="btn ghost" href="https://github.com/susevenci/mcd-store-truth#安装">查看安装与使用</a>
+</div>
+
+<div class="panel"><h2>它解决什么问题</h2><div class='feat'><span class='k'>不许猜</span><span>适用门店清单缺失时判「判不了」，而不是默认当成全门店可用。</span></div><div class='feat'><span class='k'>硬证据优先</span><span>同时存在「已过期」和「字段残缺」时判「用不了」，有单测守着。</span></div><div class='feat'><span class='k'>券的双来源</span><span>自动合并卡包券与门店专属券——后者最常被漏掉，却最关键。</span></div><div class='feat'><span class='k'>真值矩阵</span><span>券 × 门店一次跑完，出门前就知道哪张券该去哪家店花。</span></div></div>
+
+<div class="panel"><h2>真实运行截图</h2><div class='shot'><img src='screenshot-stores.png' alt='上海人民广场附近 5 家实时门店'><div class='cap'>上海人民广场附近 5 家实时门店</div></div></div>
+
+<div class="panel"><h2>30 秒跑起来</h2>
+<pre>git clone https://github.com/susevenci/mcd-store-truth.git
+cd mcd-store-truth          # 零依赖，Python 3.8+，无需 pip install
+python -m src.cli matrix --city 上海 --keyword 人民广场</pre>
+<p style="font-size:13px;color:#8a8587;margin-top:10px">
+不配 Token 也能跑：所有命令都支持 <code>--offline</code>，用仓库内的脱敏样例数据即可验证全部逻辑。</p>
+</div>
+
+<div class="panel"><h2>作者的另外三个参赛作品</h2><div class="links"><a href='https://github.com/susevenci/mcd-safe-order'>麦麦安心点 · 特殊人群安全点餐三档筛查</a><a href='https://github.com/susevenci/mcd-prize-radar'>麦门抽奖情报局 · 积分抽奖体检，不编概率</a><a href='https://github.com/susevenci/mcd-moments'>麦门周报 · 订单生成单文件 HTML 年报</a></div></div>
+
+<footer>
+本页为麦当劳程序员创意开发大赛参赛作品的展示页，由项目文档自动生成；非麦当劳官方产品。<br>
+项目输出仅供参考，不构成医疗、营养或其他专业建议；餐品信息、价格及供应状态以麦当劳官方渠道的实时结果为准。<br>
+报名 Issue：<a href="https://github.com/M-China/mcd-developer-innovation-challenge/issues">#1342 – #1345</a>
+</footer>
+
+</div></body></html>
