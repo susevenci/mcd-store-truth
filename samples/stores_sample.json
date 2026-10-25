@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "warning": "离线演示用【示例数据】，字段名与真实接口对齐，但 storeCode/地址为示意值，不代表真实门店。",
+    "source": "query-nearby-stores(beType=1, searchType=2, city=成都, keyword=春熙路)"
+  },
+  "list": [
+    {
+      "storeCode": "3450101",
+      "storeName": "示例-春熙路步行街餐厅",
+      "address": "示例市示例区春熙路 1 号",
+      "distance": "0.3km"
+    },
+    {
+      "storeCode": "3450102",
+      "storeName": "示例-太古里得来速餐厅",
+      "beCode": "BE9002",
+      "address": "示例市示例区中纱帽街 8 号",
+      "distance": "0.7km"
+    },
+    {
+      "storeCode": "3450103",
+      "storeName": "示例-总府路餐厅",
+      "address": "示例市示例区总府路 22 号",
+      "distance": "1.2km"
+    }
+  ]
+}
